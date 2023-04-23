@@ -66,7 +66,7 @@
             <div class="icon">
               <i class="nav-icon fas fa-list-ul"></i>
             </div>
-            <a href="#" class="small-box-footer">Подробнее <i
+            <a href="{{ route('category.index') }}" class="small-box-footer">Подробнее <i
                 class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
@@ -82,7 +82,7 @@
             <div class="icon">
               <i class="nav-icon fas fa-tags"></i>
             </div>
-            <a href="#" class="small-box-footer">Подробнее <i
+            <a href="{{ route('tag.index') }}" class="small-box-footer">Подробнее <i
                 class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>

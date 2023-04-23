@@ -10,13 +10,13 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Категории</h1>
+              <h1 class="m-0">Теги</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('main.index') }}">Главная</a>
                 </li>
-                <li class="breadcrumb-item active">Категории</li>
+                <li class="breadcrumb-item active">Теги</li>
               </ol>
             </div><!-- /.col -->
 
@@ -26,8 +26,8 @@
       <!-- /.content-header -->
 
       <div class="col-4">
-        <a href="{{ route('category.create') }}" class="btn btn-primary mb-3">Создать
-          категорию</a>
+        <a href="{{ route('tag.create') }}" class="btn btn-primary mb-3">Создать
+          тег</a>
       </div>
 
       <div class="col-md-6">
@@ -42,14 +42,14 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($categories as $category)
+                @foreach ($tags as $tag)
                   <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->title }}</td>
+                    <td>{{ $tag->id }}</td>
+                    <td>{{ $tag->title }}</td>
                     <td class="d-flex">
-                      <a href="{{ route('category.edit', $category->id) }}"
-                        class="ml-3 fs-4"><i class="far fa-edit"></i></a>
-                      <form action="{{ route('category.delete', $category->id) }}"
+                      <a href="{{ route('tag.edit', $tag->id) }}" class="ml-3 fs-4"><i
+                          class="far fa-edit"></i></a>
+                      <form action="{{ route('tag.delete', $tag->id) }}"
                         class="text-danger ml-3" method="POST">
                         @csrf
                         @method('delete')

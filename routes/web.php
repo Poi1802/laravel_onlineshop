@@ -17,12 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function () {
   Route::get('/', IndexController::class)->name('main.index');
 
-  Route::prefix('category')->namespace('App\\Http\\Controllers\\Category')->group(function () {
-    Route::get('/', 'IndexController')->name('category.index');
-    // Route::get('/create', 'CreateController')->name('category.create');
-    // Route::post('/', 'StoreController')->name('category.store');
-    // Route::get('/{category}/edit', 'EditController')->name('category.edit');
-    // Route::patch('/', 'UpdateController')->name('category.update');
-    // Route::delete('/{category}', 'DeleteController')->name('category.delete');
+  Route::prefix('category')->name('category.')->namespace('App\\Http\\Controllers\\Category')->group(function () {
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('/create', 'CreateController')->name('create');
+    Route::post('/', 'StoreController')->name('store');
+    Route::get('/{category}/edit', 'EditController')->name('edit');
+    Route::patch('/{category}', 'UpdateController')->name('update');
+    Route::delete('/{category}', 'DeleteController')->name('delete');
+  });
+
+  Route::prefix('tag')->name('tag.')->namespace('App\\Http\\Controllers\\Tag')->group(function () {
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('/create', 'CreateController')->name('create');
+    Route::post('/', 'StoreController')->name('store');
+    Route::get('/{tag}/edit', 'EditController')->name('edit');
+    Route::patch('/{tag}', 'UpdateController')->name('update');
+    Route::delete('/{tag}', 'DeleteController')->name('delete');
   });
 });
