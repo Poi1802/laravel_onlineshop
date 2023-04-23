@@ -34,4 +34,13 @@ Route::prefix('admin')->group(function () {
     Route::patch('/{tag}', 'UpdateController')->name('update');
     Route::delete('/{tag}', 'DeleteController')->name('delete');
   });
+
+  Route::prefix('color')->name('color.')->namespace('App\\Http\\Controllers\\Color')->group(function () {
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('/create', 'CreateController')->name('create');
+    Route::post('/', 'StoreController')->name('store');
+    Route::get('/{color}/edit', 'EditController')->name('edit');
+    Route::patch('/{color}', 'UpdateController')->name('update');
+    Route::delete('/{color}', 'DeleteController')->name('delete');
+  });
 });
