@@ -22,4 +22,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
   --filename=composer \
   --install-dir=/usr/local/bin
 
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh \ 
+  bash /tmp/nodesource_setup.sh \ 
+  apt install nodejs
+
 WORKDIR /var/www
