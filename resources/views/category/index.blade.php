@@ -31,7 +31,10 @@
       </div>
 
       <div class="col-md-6">
-        <div class="card">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Таблица категорий</h3>
+          </div>
           <div class="card-body p-0">
             <table class="table table-bordered">
               <thead>

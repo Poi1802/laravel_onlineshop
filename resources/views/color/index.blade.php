@@ -27,18 +27,22 @@
 
       <div class="col-4">
         <a href="{{ route('color.create') }}" class="btn btn-primary mb-3">Создать
-          тег</a>
+          цвет</a>
       </div>
 
       <div class="col-md-6">
-        <div class="card">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Таблица цветов</h3>
+          </div>
           <div class="card-body p-0">
             <table class="table table-bordered">
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
-                  <th>Назавание</th>
-                  <th>Управление</th>
+                  <th>HEX</th>
+                  <th style="width: 10px">Цвет</th>
+                  <th style="width: 10px">Управление</th>
                 </tr>
               </thead>
               <tbody>
@@ -46,6 +50,17 @@
                   <tr>
                     <td>{{ $color->id }}</td>
                     <td>{{ $color->title }}</td>
+                    <td>
+                      <div
+                        style="width: 22px;
+                          height: 22px; 
+                          background: {{ $color->title }};
+                          border-radius: 100%;
+                          margin: auto;
+                          text-align: center;
+                          ">
+                      </div>
+                    </td>
                     <td class="d-flex">
                       <a href="{{ route('color.edit', $color->id) }}" class="ml-3 fs-4"><i
                           class="far fa-edit"></i></a>

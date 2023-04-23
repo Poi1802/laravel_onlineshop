@@ -16,7 +16,8 @@
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('main.index') }}">Главная</a>
                 </li>
-                <li class="breadcrumb-item"><a href="{{ route('color.index') }}">Цвета</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('color.index') }}">Цвета</a>
+                </li>
                 <li class="breadcrumb-item active">Редактирование цвета</li>
               </ol>
             </div><!-- /.col -->
@@ -36,10 +37,12 @@
             @method('patch')
             <div class="card-body">
               <div class="form-group">
-                <label for="exampleInputEmail1">Название категории</label>
+                <label for="exampleInputEmail1">Введите <a
+                    href="https://colorscheme.ru/html-colors.html" target="blank">HEX</a>
+                  цвета.
+                </label>
                 <input type="text" class="form-control" name="title"
-                  id="exampleInputEmail1" value="{{ $color->title }}"
-                  placeholder="Категория">
+                  id="exampleInputEmail1" value="{{ $color->title }}" placeholder="HEX">
               </div>
             </div>
             <div class="card-footer">

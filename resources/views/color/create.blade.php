@@ -36,9 +36,12 @@
             @csrf
             <div class="card-body">
               <div class="form-group">
-                <label for="exampleInputEmail1">Название тега</label>
+                <label for="exampleInputEmail1">Введите <a
+                    href="https://colorscheme.ru/html-colors.html" target="blank">HEX</a>
+                  цвета.
+                </label>
                 <input type="text" class="form-control" name="title"
-                  id="exampleInputEmail1" placeholder="Тег">
+                  id="exampleInputEmail1" placeholder="HEX">
               </div>
             </div>
             <div class="card-footer">
