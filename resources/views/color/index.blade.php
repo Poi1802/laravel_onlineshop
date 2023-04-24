@@ -26,7 +26,7 @@
       <!-- /.content-header -->
 
       <div class="col-4">
-        <a href="{{ route('color.create') }}" class="btn btn-primary mb-3">Создать
+        <a href="{{ route('color.create') }}" class="btn btn-primary mb-3">Добавить
           цвет</a>
       </div>
 

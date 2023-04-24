@@ -10,7 +10,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Создание товара</h1>
+              <h1 class="m-0">Добавление товара</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -19,7 +19,7 @@
                 <li class="breadcrumb-item"><a
                     href="{{ route('product.index') }}">Товары</a>
                 </li>
-                <li class="breadcrumb-item active">Создание товара</li>
+                <li class="breadcrumb-item active">Добавление товара</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -155,7 +155,7 @@
               </div>
             </div>
             <div class="card-footer d-flex">
-              <button type="submit" class="btn btn-primary">Создать</button>
+              <button type="submit" class="btn btn-primary">Добавить</button>
               <a href="{{ route('product.index') }}"
                 class="btn btn-warning ml-auto">Назад</a>
             </div>

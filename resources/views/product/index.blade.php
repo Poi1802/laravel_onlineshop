@@ -26,7 +26,7 @@
       <!-- /.content-header -->
 
       <div class="col-4">
-        <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">Создать
+        <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">Добавить
           товар</a>
       </div>
 
@@ -53,8 +53,12 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
-                    <td>{{ $product->category }}</td>
-                    <td>{{ $product->tags }}</td>
+                    <td>{{ $product->category->title }}</td>
+                    <td>
+                      @foreach ($product->tags as $tag)
+                        {{ $tag->title . ', ' }}
+                      @endforeach
+                    </td>
                     <td class="d-flex">
                       <a href="{{ route('product.edit', $product->id) }}"
                         class="ml-3 fs-4"><i class="far fa-edit"></i></a>
