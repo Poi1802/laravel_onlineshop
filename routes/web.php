@@ -52,4 +52,13 @@ Route::prefix('admin')->group(function () {
     Route::patch('/{user}', 'UpdateController')->name('update');
     Route::delete('/{user}', 'DeleteController')->name('delete');
   });
+
+  Route::prefix('product')->name('product.')->namespace('App\\Http\\Controllers\\Product')->group(function () {
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('/create', 'CreateController')->name('create');
+    Route::post('/', 'StoreController')->name('store');
+    Route::get('/{product}/edit', 'EditController')->name('edit');
+    Route::patch('/{product}', 'UpdateController')->name('update');
+    Route::delete('/{product}', 'DeleteController')->name('delete');
+  });
 });

@@ -22,29 +22,40 @@ class StoreRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'name' => 'required|string',
-      'last_name' => 'required|string',
-      'email' => 'required|email|unique:users,email',
-      'password' => 'required|string|confirmed',
-      'adress' => 'required|string',
+      'title' => 'required|string',
+      'description' => 'required|string',
+      'count' => 'required|numeric',
+      'price' => 'required|numeric',
+      'published' => 'boolean',
+      'category_id' => 'required|numeric|exists:categories,id',
+      'tags' => 'required|array',
+      'colors' => 'required|array',
+      'imgs' => 'required|array',
     ];
   }
 
   public function messages()
   {
     return [
-      'name.required' => 'Обязательное поле',
-      'name.string' => 'Должна быть строка',
-      'last_name.required' => 'Обязательное поле',
-      'last_name.string' => 'Должна быть строка',
-      'email.required' => 'Обязательное поле',
-      'email.email' => 'Должно быть в виде something@mail.ru или т.п.',
-      'email.unique' => 'Такой email уже есть',
-      'password.required' => 'Обязательное поле',
-      'password.string' => 'Должна быть строка',
-      'password.confirmed' => 'Пароли не идентичны',
-      'adress.required' => 'Обязательное поле',
-      'adress.string' => 'Должна быть строка',
+      'title.required' => 'Обязательное поле',
+      'title.string' => 'Должна быть строка',
+      'description.required' => 'Обязательное поле',
+      'description.string' => 'Должна быть строка',
+      'count.required' => 'Обязательное поле',
+      'count.numeric' => 'Должно быть число',
+      'price.required' => 'Обязательное поле',
+      'price.numeric' => 'Должно быть число',
+      'published.required' => 'Обязательное поле',
+      'published.boolean' => 'Должно быть да или нет',
+      'category_id.required' => 'Обязательное поле',
+      'category_id.numeric' => 'Должна быть строка',
+      'category_id.exists' => 'Такой категории нет',
+      'tags.required' => 'Обязательное поле',
+      'tags.array' => 'Должен быть массив',
+      'colors.required' => 'Обязательное поле',
+      'colors.array' => 'Должен быть массив',
+      'imgs.required' => 'Обязательное поле',
+      'imgs.array' => 'Должен быть массив',
     ];
   }
 }

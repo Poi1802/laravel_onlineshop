@@ -14,6 +14,10 @@ return new class extends Migration {
       $table->id();
       $table->string('title');
       $table->text('description');
+      $table->integer('count');
+      $table->integer('price');
+      $table->boolean('published')->default(true);
+      $table->foreignId('user_id')->constrained('users');
       $table->foreignId('category_id')->constrained(table: 'categories', indexName: 'products_category_id');
       $table->timestamps();
       $table->softDeletes();

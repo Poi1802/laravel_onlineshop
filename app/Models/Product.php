@@ -23,6 +23,11 @@ class Product extends Model
     return $this->belongsToMany(Tag::class, 'product_tags', 'product_id', 'tag_id');
   }
 
+  public function colors()
+  {
+    return $this->belongsToMany(Color::class, 'product_colors', 'product_id', 'color_id');
+  }
+
   public function imgs()
   {
     return $this->hasMany(ProductImg::class, 'product_id', 'id');
