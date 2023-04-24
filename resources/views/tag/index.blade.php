@@ -40,8 +40,8 @@
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
-                  <th>Назавание</th>
-                  <th>Управление</th>
+                  <th>Название</th>
+                  <th style="width: 10px">Управление</th>
                 </tr>
               </thead>
               <tbody>

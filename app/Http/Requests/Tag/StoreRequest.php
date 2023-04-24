@@ -25,4 +25,12 @@ class StoreRequest extends FormRequest
       'title' => 'required|string'
     ];
   }
+
+  public function messages()
+  {
+    return [
+      'title.required' => 'Обязательное поле',
+      'title.string' => 'Должна быть строка',
+    ];
+  }
 }

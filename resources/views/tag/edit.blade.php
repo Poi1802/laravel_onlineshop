@@ -37,13 +37,18 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">Название категории</label>
-                <input type="text" class="form-control" name="title"
-                  id="exampleInputEmail1" value="{{ $tag->title }}"
+                <input type="text"
+                  class="form-control @error('title') border-danger @enderror"
+                  name="title" id="exampleInputEmail1" value="{{ $tag->title }}"
                   placeholder="Категория">
+                @error('title')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer d-flex">
               <button type="submit" class="btn btn-primary">Обновить</button>
+              <a href="{{ route('tag.index') }}" class="btn btn-warning ml-auto">Назад</a>
             </div>
           </form>
         </div>

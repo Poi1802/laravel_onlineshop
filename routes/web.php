@@ -43,4 +43,13 @@ Route::prefix('admin')->group(function () {
     Route::patch('/{color}', 'UpdateController')->name('update');
     Route::delete('/{color}', 'DeleteController')->name('delete');
   });
+
+  Route::prefix('user')->name('user.')->namespace('App\\Http\\Controllers\\User')->group(function () {
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('/create', 'CreateController')->name('create');
+    Route::post('/', 'StoreController')->name('store');
+    Route::get('/{user}/edit', 'EditController')->name('edit');
+    Route::patch('/{user}', 'UpdateController')->name('update');
+    Route::delete('/{user}', 'DeleteController')->name('delete');
+  });
 });
