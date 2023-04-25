@@ -61,4 +61,8 @@ Route::prefix('admin')->group(function () {
     Route::patch('/{product}', 'UpdateController')->name('update');
     Route::delete('/{product}', 'DeleteController')->name('delete');
   });
+
+  Route::prefix('productImg')->name('product.img.')->namespace('App\\Http\\Controllers\\Product')->group(function () {
+    Route::delete('/{productImg}', 'DeleteImgController')->name('delete');
+  });
 });

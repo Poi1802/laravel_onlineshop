@@ -37,42 +37,58 @@ class Service
     }
   }
 
-  public function update($data)
+  public function update($data, $product)
   {
     try {
       DB::beginTransaction();
 
       $data['user_id'] = 1;
-      if (!isset($data['published']))
+
+      if (!isset($data['published'])) {
         $data['published'] = 0;
+      }
+
+      if (isset($data['imgs'])) {
+        $imgs = $data['imgs'];
+        unset($data['imgs']);
+
+        $paths = $this->uploadImages($imgs, $product->id);
+      }
 
       $tags = $data['tags'];
       $colors = $data['colors'];
-      $imgs = $data['imgs'];
-      unset($data['tags'], $data['colors'], $data['imgs']);
+      unset($data['tags'], $data['colors']);
 
-      $product = Product::create($data);
+      $product->update($data);
 
-      $product->colors()->attach($colors);
-      $product->tags()->attach($tags);
-
-      $this->uploadImages($imgs, $product->id);
+      $product->colors()->sync($colors);
+      $product->tags()->sync($tags);
 
       DB::commit();
     } catch (\Exception $ex) {
       DB::rollBack();
+
+      foreach ($paths as $path) {
+        Storage::disk('public')->delete($path);
+      }
+
       dd($ex);
     }
   }
 
   public function uploadImages(array $imgs, $product_id)
   {
+    $paths = [];
+
     foreach ($imgs as $key => $img) {
-      $data['path'] = 'storage/' . Storage::disk('public')->put('/images', $img);
-      $data['url'] = url($data['path']);
+      $data['path'] = Storage::disk('public')->put('/images', $img);
+      $data['url'] = url('storage/' . $data['path']);
       $data['product_id'] = $product_id;
+      $paths[] = $data['path'];
 
       ProductImg::create($data);
     }
+
+    return $paths;
   }
 }
