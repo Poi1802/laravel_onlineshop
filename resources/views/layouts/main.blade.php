@@ -12,7 +12,8 @@
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+  @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
   <!-- Font Awesome -->
   <link rel="stylesheet"

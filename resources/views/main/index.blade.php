@@ -1,3 +1,17 @@
+@php
+  use App\Models\Product;
+  use App\Models\Category;
+  use App\Models\Tag;
+  use App\Models\Color;
+  use App\Models\User;
+  
+  $productsCount = Product::count();
+  $categoriesCount = Category::count();
+  $tagsCount = Tag::count();
+  $colorsCount = Color::count();
+  $usersCount = User::count();
+@endphp
+
 @extends('layouts.main')
 
 @section('content')
@@ -27,7 +41,7 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>150</h3>
+              <h3>hz</h3>
 
               <p>Заказы</p>
             </div>
@@ -43,7 +57,7 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>{{ $productsCount }}</h3>
 
               <p>Товары</p>
             </div>
@@ -59,7 +73,7 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{ $categoriesCount }}</h3>
 
               <p>Категории</p>
             </div>
@@ -75,7 +89,7 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{ $tagsCount }}</h3>
 
               <p>Теги</p>
             </div>
@@ -92,7 +106,7 @@
           <!-- small box -->
           <div class="small-box bg-light">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{ $usersCount }}</h3>
 
               <p>Пользователи</p>
             </div>
@@ -109,7 +123,7 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{ $colorsCount }}</h3>
 
               <p>Цвета</p>
             </div>

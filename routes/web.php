@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->group(function () {
+Route::middleware('auth')->group(function () {
   Route::get('/', IndexController::class)->name('main.index');
 
   Route::prefix('category')->name('category.')->namespace('App\\Http\\Controllers\\Category')->group(function () {
@@ -66,3 +66,7 @@ Route::prefix('admin')->group(function () {
     Route::delete('/{productImg}', 'DeleteImgController')->name('delete');
   });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

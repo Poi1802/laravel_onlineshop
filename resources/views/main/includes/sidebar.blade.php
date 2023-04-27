@@ -1,3 +1,17 @@
+@php
+  use App\Models\Product;
+  use App\Models\Category;
+  use App\Models\Tag;
+  use App\Models\Color;
+  use App\Models\User;
+  
+  $productsCount = Product::count();
+  $categoriesCount = Category::count();
+  $tagsCount = Tag::count();
+  $colorsCount = Color::count();
+  $usersCount = User::count();
+@endphp
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="{{ route('main.index') }}" class="brand-link">
@@ -15,7 +29,7 @@
           class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Eugen Bazhenov</a>
+        <a href="#" class="d-block">{{ Auth::user()?->name }}</a>
       </div>
     </div>
 
@@ -50,6 +64,7 @@
             <p>
               Товары
             </p>
+            <span class="badge badge-info right">{{ $productsCount }}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -58,6 +73,7 @@
             <p>
               Категории
             </p>
+            <span class="badge badge-info right">{{ $categoriesCount }}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -66,6 +82,7 @@
             <p>
               Теги
             </p>
+            <span class="badge badge-info right">{{ $tagsCount }}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -74,6 +91,7 @@
             <p>
               Цвета
             </p>
+            <span class="badge badge-info right">{{ $colorsCount }}</span>
           </a>
         </li>
         <li class="nav-item">
@@ -82,6 +100,7 @@
             <p>
               Пользователи
             </p>
+            <span class="badge badge-info right">{{ $usersCount }}</span>
           </a>
         </li>
       </ul>
