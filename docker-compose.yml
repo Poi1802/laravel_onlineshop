@@ -7,7 +7,7 @@ services:
       - ./:/var/www
       - ./_docker/nginx/conf.d/:/etc/nginx/conf.d
     ports:
-      - "80:80"
+      - "8888:80"
     depends_on:
       - app
     container_name: shop_nginx
