@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'isAdmin'])->group(function () {
   Route::get('/', IndexController::class)->name('main.index');
 
   Route::prefix('category')->name('category.')->namespace('App\\Http\\Controllers\\Category')->group(function () {

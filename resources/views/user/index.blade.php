@@ -44,6 +44,7 @@
                   <th>Фамилия</th>
                   <th>Адрес</th>
                   <th>Email</th>
+                  <th>Роль</th>
                   <th style="width: 10px">Управление</th>
                 </tr>
               </thead>
@@ -55,6 +56,13 @@
                     <td>{{ $user->last_name }}</td>
                     <td>{{ $user->adress }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>
+                      @foreach ($user->getRoles() as $role => $id)
+                        @if ($id == $user->role)
+                          {{ $role }}
+                        @endif
+                      @endforeach
+                    </td>
                     <td class="d-flex">
                       <a href="{{ route('user.edit', $user->id) }}" class="ml-3 fs-4"><i
                           class="far fa-edit"></i></a>
