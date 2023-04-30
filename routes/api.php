@@ -15,5 +15,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
+});
+
+Route::prefix('products')->namespace('App\\Http\\Controllers\\API\\v1\\Product')->group(function () {
+  Route::get('/', 'IndexController');
+});
+
+Route::prefix('tags')->namespace('App\\Http\\Controllers\\API\\v1\\Tag')->group(function () {
+  Route::get('/', 'IndexController');
+});
+
+Route::prefix('categories')->namespace('App\\Http\\Controllers\\API\\v1\\Category')->group(function () {
+  Route::get('/', 'IndexController');
+});
+
+Route::prefix('colors')->namespace('App\\Http\\Controllers\\API\\v1\\Color')->group(function () {
+  Route::get('/', 'IndexController');
+});
+
+Route::prefix('carts')->namespace('App\\Http\\Controllers\\API\\v1\\Cart')->group(function () {
+  Route::post('/', 'StoreController');
 });

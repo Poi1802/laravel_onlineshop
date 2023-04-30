@@ -18,6 +18,11 @@ class Product extends Model
     return $this->hasOne(Category::class, 'id', 'category_id');
   }
 
+  public function user()
+  {
+    return $this->hasOne(User::class, 'id', 'user_id');
+  }
+
   public function tags()
   {
     return $this->belongsToMany(Tag::class, 'product_tags', 'product_id', 'tag_id');
