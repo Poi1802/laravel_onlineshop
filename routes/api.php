@@ -36,4 +36,8 @@ Route::prefix('colors')->namespace('App\\Http\\Controllers\\API\\v1\\Color')->gr
 
 Route::prefix('carts')->namespace('App\\Http\\Controllers\\API\\v1\\Cart')->group(function () {
   Route::post('/', 'StoreController');
+  Route::get('/{userId}', 'ShowController');
+  Route::patch('/{cart}', 'UpdateController');
 });
+
+Auth::routes();

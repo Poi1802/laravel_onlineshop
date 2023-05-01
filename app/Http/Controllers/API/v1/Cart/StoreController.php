@@ -12,6 +12,12 @@ class StoreController extends Controller
   public function __invoke(StoreRequest $request)
   {
     $data = $request->validated();
-    return $data['products'];
+    $cart = Cart::create($data);
+    return $cart ? json_encode([
+      'status' => true,
+      'cart_id' => $cart->id
+    ]) : json_encode([
+        'status' => false,
+      ]);
   }
 }

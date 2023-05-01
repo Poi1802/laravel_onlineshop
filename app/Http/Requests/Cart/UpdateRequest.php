@@ -22,15 +22,7 @@ class UpdateRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'title' => ['required', 'regex:/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/']
-    ];
-  }
-
-  public function messages()
-  {
-    return [
-      'title.regex' => 'Должен быть HEX',
-      'title.required' => 'Обязательное поле',
+      'product_ids' => 'required|string'
     ];
   }
 }
