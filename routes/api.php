@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,4 +41,8 @@ Route::prefix('carts')->namespace('App\\Http\\Controllers\\API\\v1\\Cart')->grou
   Route::patch('/{cart}', 'UpdateController');
 });
 
-Auth::routes();
+Route::middleware('auth:sanctum')->group(function () {
+  Route::get('/user', function (Request $request) {
+    return new UserResource($request->user());
+  });
+});
