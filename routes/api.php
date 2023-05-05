@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('products')->namespace('App\\Http\\Controllers\\API\\v1\\Product')->group(function () {
   Route::get('/', 'IndexController');
+  Route::get('/{product}', 'ShowController');
 });
 
 Route::prefix('tags')->namespace('App\\Http\\Controllers\\API\\v1\\Tag')->group(function () {
